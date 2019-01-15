@@ -81,7 +81,12 @@ class AudioPlayer extends Component {
  }
 
  // increase Playback Rate
- 
+  toggleRate() {
+    let { speedup } = this.state;
+    speedup = !speedup;
+    this.setState({ speedup });
+    this.wavesurfer.setPlaybackRate(speedup ? 2.0 : 1.0);
+  }
   render() {
     let { playing, currentTime, duration, speedup } = this.state;
     /**

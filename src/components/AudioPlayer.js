@@ -36,6 +36,10 @@ class AudioPlayer extends Component {
     }) 
 
     this.wavesurfer.load(this.props.src);
+    this.wavesurfer.on('ready', () => {
+      let pcm = this.wavesurfer.exportPCM(1024, 10000, true)
+      console.log(pcm);
+    });
     this.getSeek();
    
   }
@@ -90,7 +94,7 @@ class AudioPlayer extends Component {
   render() {
     let { playing, currentTime, duration, speedup } = this.state;
     /**
-     * Render Component
+     * Render component
      */
     return (
       <div>

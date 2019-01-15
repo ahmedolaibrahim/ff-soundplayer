@@ -68,7 +68,12 @@ class AudioPlayer extends Component {
         }
 
       // Pause or play audio depending on play status
-    
+       if (playing) {
+         this.wavesurfer.play();
+       }
+       else {
+         this.wavesurfer.pause();
+       }
      
        this.setState(toSet);
     }
